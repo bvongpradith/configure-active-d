@@ -10,9 +10,9 @@ This tutorial guides the implementation of Active Directory within Microsoft Azu
 - [Setup a Subscription and a Resource in Azure for Beginner Labs](https://github.com/bvongpradith/setup-azure-sub-and-resource)
 - [Create Virtual Machines Within Azure and Observe The Network Topology](https://github.com/bvongpradith/creating-azure-vm)
 
-<h2>Environments and Technologies Used</h2>
+<h2>Technologies and Enviroments Used</h2>
 
-- Microsoft Azure (Virtual Machines/Compute)
+- Microsoft Azure
 - Remote Desktop
 - Active Directory Domain Services
 - PowerShell
@@ -24,30 +24,30 @@ This tutorial guides the implementation of Active Directory within Microsoft Azu
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
-- Setup Resources in Azure
+- Create resources in a resource group in Azure
 - Ensure Connectivity between the client and Domain Controller
 - Install Active Directory
-- Create an Admin and Normal User Account in AD
+- Create an Admin and Normal User Account in Active Directory
 - Join Client-1 to your domain
 - Setup Remote Desktop for non-administrative users on Client-1
-- Create a bunch of additional users and attempt to log into client-1 with one of the users
-- Clean-up/delete resources or stop both VMs
+- Create additional users and attempt to log into client-1 with one of the users
+- Delete resources
 
-<h2>Deployment and Configuration Steps</h2>
+<h2>Deployment and Set Up</h2>
 
 <p>
-<img src="https://i.imgur.com/mBlYU0j.png"/>
+<img src="https://i.imgur.com/EZRqL12.png"/>
 </p>
 <p>
-First, create the resources, I just named the resource group AD-LAB, the virtual machine DC-1. Select Windows Server 2022 and set the size to be 2 CPUs, then create the VM.
+First, we'll create the resources needed for this tutorial. I will be naming the resource group "AD-RG", the virtual machine "DC-1" and then select the Windows Server 2022. Make sure the size is set to be 2 VCPUs and then create the VM.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/iANg4bk.png"/>
+<img src="https://i.imgur.com/gn2dr6T.png"/>
 </p>
 <p>
-Then create the Windows 10 VM (Client-1), make sure it's in the same resource group and region, and then select the size to use 2 CPUs as well. And finally make sure it is in the same vnet and subnet as DC-1. 
+Secondly, we'll create the Windows 10 VM named "Client-1". We must ensure that it is made under the same resource group, region, and have the same size VCPUs of the first VM. It will also need to be in the same Vnet as "DC-1".
 </p>
 <br />
 
