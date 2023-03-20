@@ -52,7 +52,7 @@ Secondly, we'll create the Windows 10 VM named "Client-1". We must ensure that i
 <br />
 
 <p>
-<img src="https://i.imgur.com/2On7GkF.png"/>
+<img src="https://i.imgur.com/W9MwKqG.png"/>
 </p>
 <p>
 Now go into DC-1 and click into the NIC (network interface card) as shown above.
