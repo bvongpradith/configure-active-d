@@ -2,13 +2,13 @@
 <img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
 </p>
 
-<h1>On-premises Active Directory Deployed in Azure</h1>
-This tutorial/lab outlines the implementation of on-premises Active Directory within Azure Virtual Machines. If you haven't seen my prerequisite tutorials first, go ahead and check them first and come back here afterwards, as this lab builds on those ones.<br />
+<h1>OActive Directory Deployed in Azure</h1>
+This tutorial guides the implementation of Active Directory within Microsoft Azure Virtual Machines. For this tutorial to be completed, you must finish the prerequisites first and come back to this one as it builds upon those.  <br />
 
 <h2>Prerequisites</h2>
 
-- [Setup a Subscription and a Resource in Azure for Beginner Labs](https://github.com/jacksonmalms/setup-azure-sub-and-resource)
-- [Create Virtual Machines Within Azure and Observe The Network Topology](https://github.com/jacksonmalms/create-azure-vm)
+- [Setup a Subscription and a Resource in Azure for Beginner Labs](https://github.com/bvongpradith/setup-azure-sub-and-resource)
+- [Create Virtual Machines Within Azure and Observe The Network Topology](https://github.com/bvongpradith/creating-azure-vm)
 
 <h2>Environments and Technologies Used</h2>
 
