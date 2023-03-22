@@ -60,90 +60,90 @@ Now go into DC-1 and click into the NIC (network interface card) as shown above.
 <br />
 
 <p>
-<img src="https://i.imgur.com/iBiPkNw.png"/>
+<img src="https://i.imgur.com/jcTP1xX.png"/>
 </p>
 <p>
-Then go into IP configurations and click on DC-1's configuration.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/5PGTLsH.png"/>
-</p>
-<p>
-Now set the IP to static and click save in the upper left.
+Then click into "IP Configurations" and click on "ipconfig1".
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/sCtm2u6.jpg"/>
+<img src="https://i.imgur.com/nLi8mKo.png"/>
 </p>
 <p>
-Now login to Client-1 and ping DC-1's private IP with perpetual ping with ping -t, notice the request is being timed out, keep this open for now.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/d0h4V0Q.jpg"/>
-</p>
-<p>
-Now log into DC-1 and open Windows Defender Firewall with Advanced Security.
+Set the IP to static and then click save in the top left.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/wJhlDGy.png"/>
+<img src="https://i.imgur.com/wl7ZerE.png"/>
 </p>
 <p>
-Now go into inbound rules and enable all ICMPv4 traffic, this is the protocol that the ping command uses.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/Ig6FsqZ.jpg"/>
-</p>
-<p>
-Go back into Client-1 and notice that we are now getting replies back from DC-1 with the ping -t command. (FYI if you hit Ctrl + C in command prompt it will stop whatever command that is currently being executed)
+Then login into "Client-1" with RMC and continously ping "DC-1" private IP address with "ping -t". Observe how the request is being timed out and keep this window up.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/Mb91ghL.png"/>
+<img src="https://i.imgur.com/DlKRtdw.png"/>
 </p>
 <p>
-Now we will install AD inside of DC-1, so go back into DC-1 and go into server manager -> Add roles and features -> Server Roles -> select Active Directory Domain Services -> Add Features -> and then click next until you can hit install.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/wVqaKbn.png"/>
-</p>
-<p>
-Now we need to promote DC-1 as a domain controller, so click on the flag in the top right and click "Promote this server to a domain controller".
+After, log into "DC-1" and open Windows Defender Firewall with Advanced Security by typing it in the search bar.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/XFj5Yrf.png"/>
+<img src="https://i.imgur.com/3ulEvHg.png"/>
 </p>
 <p>
-Now add a new forest and name it (I just named this one "mydomain.com"), hit next.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/We2cZjC.png"/>
-</p>
-<p>
-Then set the DSRM password, and then just hit nest until you can hit install. It will restart the VM after installing.
+Then we'll go to inbound rules, sort it by protocol and then enable all the rules with ICMPv4 protocol. This will enable the ICMPv4 traffic that the ping command uses.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/5nfxWVn.png"/>
+<img src="https://i.imgur.com/xyCKmdr.png"/>
 </p>
 <p>
-When you connect back into DC-1, you will need to use a different account and use mydomain.com\user (make sure it has a backslash and not a forward slash), use what ever username that you set when you created DC-1.
+If we return back to "Client-1", we will notice that we are now getting replies back. To stop the ping you can press "Ctrl + C".
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/9hKoKlH.png"/>
+</p>
+<p>
+Finally, we will install Active Directory inside of DC-1. Open up DC-1 and click into "Sever Manager". The first thing we will click is "Add roles and features", press next until we get into "Server Roles", check the box that says "Active Directory Domain Services", click "Add Features" and then continue to click next until you can install.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/vAwcHG1.png"/>
+</p>
+<p>
+Next, we'll promote the DC-1 as a domain controller. To do this we'll click on the flag with the caution sign on the top right of "Server Manager" and press "Promote this server to a domain controller".
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/Cn367WC.png"/>
+</p>
+<p>
+Next, check "Add a new forest" name it to anything you want. In this tutorial we will use "mydomain.com" and hit next.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/YoKCsr1.png"/>
+</p>
+<p>
+Now you can make a DSRM password and hit next until you are able to install. This will restart the virtual machine after it is finished.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/OjoxVpx.png"/>
+</p>
+<p>
+Next, we'll connect back into "DC-1" with RDC. This time we will use a different account and type the user as "mydomain.com\labuser" or the username that you created when you made "DC-1" The password will be the same.
 </p>
 <br />
 
