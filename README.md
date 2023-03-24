@@ -148,93 +148,86 @@ Next, we'll connect back into "DC-1" with RDC. This time we will use a different
 <br />
 
 <p>
-<img src="https://i.imgur.com/RfGRNWT.png"/>
+<img src="https://i.imgur.com/IqPpMGP.png"/>
 </p>
 <p>
-Now go to Active Directory Users and Computers (ADUC).
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/Gl98T2W.png"/>
-</p>
-<p>
-Now create two new Organizational Units (OU) one called “_EMPLOYEES” and the other “_ADMINS”. Do that by going to mydomain and right clicking in the empty space.
+Now we'll go to the server manager and then go to tools. Press "Active Directory Users and Computers" or ADUC.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/HDPxqTB.png"/>
+<img src="https://i.imgur.com/iE9ClSe.png"/>
 </p>
 <p>
-Now create a new admin called "jane_admin" and uncheck "User must change password at next logon".
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/GF10K7x.png"/>
-</p>
-<p>
-Now add Jane to Domain Admin, to do that right click on jane -> Properties -> Member Of -> Add -> type "Domain" in the object box -> Check Names -> Domain Admins -> hit OK and then apply.
-  
-After you add Jane to the domain admins security group, logout and logon to DC-1 as jane_admin.
+Next create two new "Organizational Units" by clicking on mydomain and right clicking the white space. The first unit will be named "_EMPLOYEES" and the second one "_ADMINS".
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/8OmbFP9.png"/>
+<img src="https://i.imgur.com/qh93Put.png"/>
 </p>
 <p>
-Now set Client-1's DNS server to the private IP of DC-1, in the case of mine it was 10.0.0.4.
-  
-To do that, on the Azure portal go into Client-1's networking and click on the NIC, go into DNS servers and add the private IP of DC-1 into the DNS server list, and then hit save. After that you will need to restart Client-1 from the Azure portal and logon to it as the original user set for that VM.
+After, we will create a new admin user by clicking to top button with a person and star on it. Name the user Jane Doe and the login username to "jane_admin". In the next screen, uncheck "User must cahnge password at next logon" then hit next to create the user.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/I8Zp3vV.png"/>
+<img src="https://i.imgur.com/kjVrg2x.png"/>
 </p>
 <p>
-After you log back into Client-1, go to Settings -> About -> Rename this PC -> change domain -> set it as mydomain.com -> and then use mydomain.com\jane_admin to make the changes. The VM will now restart.
-  
-After it restarts logon to Client-1 with MYDOMIAN\jane_admin instead (mydomain.com\jane_admin won't work since by default Client-1 will consider MYDOMAIN as the actual name of the domain. 
+Next, add Jane Doe to the group "Domain Admins". To perfom this step, right click on Jane > Properties > Member Of > Add > type "Domain" in the object box > Check Names > click "Domain Admins" > click Ok and then apply. After this, you will logout and log on to DC-1 as jane_admin.
+
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/WmJykFi.png"/>
+<img src="https://i.imgur.com/FowKbmg.png"/>
 </p>
 <p>
-Now in Client-1 go to remote desktop settings and allow all domain users to connect to Client-1. To do this click on Select users that can remotely access this PC -> Add -> type "domain users" in the object box -> Check names -> hit OK.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/3UaY6jj.png"/>
-</p>
-<p>
-Then in DC-1 go back to Active Directory Users and Computers and ensure Client-1 is listed.
+Now set Client-1's DNS server to the private IP of DC-1. To do this, head back to Client-1's nertworking on the Azure portal and click on the NIC. Click into DNS servers and add the private IP of DC-1 into the list and press save. Restart Client-1 by going back to the VM on Azure and press restart button at the top. Log back in after restarting.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/1SQwwYX.png"/>
+<img src="https://i.imgur.com/IP7qWkL.png"/>
 </p>
 <p>
-In DC-1 open up powershell ise as admin.
+When inside Client-1, go to Settings > About > Rename this PC(Advanced) > change domain > type mydomain.com > use mydomain.com\jane_admin > then press ok to make the changes apply. Restart Client-1 and log into jane_admin.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/iGLgdDi.png"/>
+<img src="https://i.imgur.com/AHOJ62I.png"/>
 </p>
 <p>
-Now copy the powershell script linked below, hit the new script icon, paste in the script, and then hit the green run button. This script will create 10,000 users with randomly generated names inside the domain, you can change that number if you would like to, it doesn't matter.
+After logging in, go to Remote Desktop Settings and click "Select users that can remotely access this PC" > add > type "domain users" in the object box > check names and then hit OK. This will allow all domain users to connect to Client-1.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/enrGRgz.png"/>
+</p>
+<p>
+Head back to DC-1 and into ADUC in the server manager application. Check to see if Client-1 is listed by clicking into mydomain and computers where you should see Client-1.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/4mTbIfW.png"/>
+</p>
+<p>
+While in DC-1, open "Windows Powershell ISE (x86)" as admin.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/JehSLdN.png"/>
+</p>
+<p>
+Finally, create 10,000 users with a randomly generated names by copying the powershell script linked below. To do this we will create a new script by pressing the button at the top left > paste script > and then hit the green run script button.
 
 - [Script](https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1)
 
-Now you can chose any of those usernames to sign into Client-1, the password will be "Password1" as that is what powershell script set them as and you can play around with the script and change it if you would like to. 
-  
-Congrats! That is the end of this lab, hopefully you had fun and learned a thing or two, because I sure did!
+After the users are created, you can use any of them to sign into Client-1. The password is defaulted to "Password1" when the script was ran on powershell.
 </p>
 <br />
