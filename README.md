@@ -2,7 +2,7 @@
 <img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
 </p>
 
-<h1>OActive Directory Deployed in Azure</h1>
+<h1>Active Directory Deployed in Azure</h1>
 This tutorial guides the implementation of Active Directory within Microsoft Azure Virtual Machines. For this tutorial to be completed, you must finish the prerequisites first and come back to this one as it builds upon those.  <br />
 
 <h2>Prerequisites</h2>
